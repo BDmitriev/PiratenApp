@@ -1,0 +1,87 @@
+﻿@model PiratIndexViewModel
+
+@{
+    ViewData["Title"] = "InputForm";
+}
+
+ <div class="container">
+
+     <div class="row">
+
+         <div class="col-12">
+             <h2>Hier findet die Datenerfassung von Piraten statt:</h2>
+
+             <div asp-validation-summary="All" class="text-danger"></div>
+         </div>
+
+      </div>
+
+      <div class="row">
+
+          <div class="col-12">
+
+              <form asp-controller="Pirat" asp-action="InputForm" method="post" enctype="multipart/form-data">
+
+
+                  <div class="form-group">
+                      <label>Name:</label>
+                      <input asp-for="@Model.Pirat.Name" class="form-control" />
+                  </div>
+
+
+                  <div class="form-group">
+                      <label>Nachname:</label>
+                      <input asp-for="@Model.Pirat.Surname" class="form-control" />
+                  </div>
+
+                  <div class="form-group">
+                      <label>Straße:</label>
+                      <input asp-for="@Model.Pirat.Street" class="form-control" />
+                  </div>
+
+                  <div class="form-group">
+                      <label>Hausnummer:</label>
+                      <input asp-for="@Model.Pirat.HouseNumber" class="form-control" />
+                  </div>
+
+
+                  <div class="form-group">
+                      <label>PLZ:</label>
+                      <input asp-for="@Model.Pirat.ZIP" class="form-control" />
+                  </div>
+
+
+                  <div class="form-group">
+                      <label>Stadt:</label>
+                      <input asp-for="@Model.Pirat.City" class="form-control" />
+                  </div>
+
+
+                  <div class="form-group">
+                      <label>Motiv:</label>
+                      <div class="custom-file">
+                          <input class="form-control custom-file-input" type="file" name="file" />
+                          <label class="custom-file-label">Suche...</label>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label>Bitte den Schiff auswählen:</label>
+                      <select id="cars" multiple name="Schiffe">
+                          <partial name="SchiffePartial" model="@Model.Schiffe" />
+                      </select>
+                  </div>
+
+                  <div class="form-group">
+                      <input class="btn btn-primary" type="submit" value="Datenerfassung beenden" />
+                  </div>
+
+              </form>
+
+              <a class="btn btn-success" asp-action="Index">Zurück zur Startseite</a>
+
+          </div>
+
+      </div>
+
+ </div>

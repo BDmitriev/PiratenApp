@@ -1,0 +1,7 @@
+﻿@model IEnumerable<Schiff>
+
+@foreach (Schiff item in Model)
+{
+    <option value="@item.SchiffName">@item.SchiffName</option>
+}
+
